@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { AuthProvider } from '@/context/AuthContext';
 import './globals.css';
 import type { Metadata } from 'next';

@@ -8,12 +8,12 @@ export default function Header() {
   const { user, logout, loading } = useAuth();
 
   return (
-    <header className="bg-slate-800 text-white shadow-lg">
+    <header className="bg-black text-white shadow-lg border-b border-yellow-400">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex-shrink-0">
           <Link
             href="/"
-            className="text-2xl font-bold hover:text-slate-300 transition-colors"
+            className="text-2xl font-bold text-yellow-400 hover:text-white transition-colors"
           >
             ContactManager
           </Link>
@@ -21,15 +21,15 @@ export default function Header() {
 
         <div className="flex items-center space-x-4">
           {loading ? (
-            <div className="animate-pulse h-6 w-24 bg-slate-700 rounded"></div>
+            <div className="animate-pulse h-6 w-24 bg-yellow-400 rounded"></div>
           ) : user ? (
             <>
-              <span className="text-sm sm:text-base">
+              <span className="text-sm sm:text-base text-yellow-200">
                 Hello, {user.name || user.email}!
               </span>
               <button
                 onClick={logout}
-                className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-2 rounded-md text-sm font-bold transition-colors border border-yellow-400"
               >
                 Logout
               </button>
@@ -38,13 +38,13 @@ export default function Header() {
             <>
               <Link
                 href="/auth/login"
-                className="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-yellow-400 border border-yellow-400 hover:bg-yellow-400 hover:text-black px-3 py-2 rounded-md text-sm font-bold transition-colors"
               >
                 Login
               </Link>
               <Link
                 href="/auth/register"
-                className="bg-sky-600 hover:bg-sky-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-2 rounded-md text-sm font-bold transition-colors border border-yellow-400"
               >
                 Register
               </Link>

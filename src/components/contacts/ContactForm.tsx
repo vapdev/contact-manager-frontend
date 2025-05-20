@@ -52,9 +52,9 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-black p-6 rounded-lg border border-yellow-400">
       <div>
-        <label htmlFor="name" className="block mb-1 font-medium">
+        <label htmlFor="name" className="block mb-1 font-medium text-yellow-300">
           Name*
         </label>
         <input
@@ -62,14 +62,14 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className={`w-full p-2 border rounded ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+          className={`w-full p-2 border rounded bg-black text-white focus:outline-none focus:border-yellow-300 ${errors.name ? 'border-yellow-400' : 'border-yellow-700'}`}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+          <p className="mt-1 text-sm text-yellow-400">{errors.name}</p>
         )}
       </div>
       <div>
-        <label htmlFor="email" className="block mb-1 font-medium">
+        <label htmlFor="email" className="block mb-1 font-medium text-yellow-300">
           Email
         </label>
         <input
@@ -77,14 +77,14 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`w-full p-2 border rounded ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+          className={`w-full p-2 border rounded bg-black text-white focus:outline-none focus:border-yellow-300 ${errors.email ? 'border-yellow-400' : 'border-yellow-700'}`}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+          <p className="mt-1 text-sm text-yellow-400">{errors.email}</p>
         )}
       </div>
       <div>
-        <label htmlFor="phone" className="block mb-1 font-medium">
+        <label htmlFor="phone" className="block mb-1 font-medium text-yellow-300">
           Phone
         </label>
         <input
@@ -92,14 +92,14 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
           type="text"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border border-yellow-700 bg-black text-white rounded focus:outline-none focus:border-yellow-300"
         />
       </div>
       <div className="flex space-x-4 pt-4">
         <button
           type="submit"
           disabled={isLoading || submitting}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300 cursor-pointer"
+          className="px-4 py-2 btn-yellow rounded disabled:opacity-60 cursor-pointer"
         >
           {(isLoading || submitting)
             ? 'Saving...'
@@ -110,7 +110,7 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
         <button
           type="button"
           onClick={() => router.push('/contacts')}
-          className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 cursor-pointer"
+          className="px-4 py-2 border border-yellow-400 text-yellow-400 bg-black rounded hover:bg-yellow-400 hover:text-black transition-colors cursor-pointer"
         >
           Cancel
         </button>

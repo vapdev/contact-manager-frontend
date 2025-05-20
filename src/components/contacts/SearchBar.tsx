@@ -26,11 +26,11 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search contacts by name or email..."
-          className="flex-grow p-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-grow p-2 border border-yellow-400 rounded-l focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-black text-white placeholder-yellow-200"
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white p-2 rounded-r hover:bg-blue-700 cursor-pointer"
+          className="bg-yellow-400 text-black p-2 rounded-r hover:bg-yellow-500 transition-colors font-bold border border-yellow-400 border-l-0"
           disabled={submitting}
         >
           {submitting ? 'Searching...' : 'Search'}

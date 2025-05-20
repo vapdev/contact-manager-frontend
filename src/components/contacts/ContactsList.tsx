@@ -13,48 +13,47 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
 
   if (contacts.length === 0) {
     return (
-      <div className="bg-gray-800 p-6 rounded text-center">
+      <div className="bg-black p-6 rounded text-center text-white border border-yellow-400">
         No contacts found. Add your first contact!
       </div>
     );
   }
 
   return (
-    <div className="overflow-hidden shadow rounded-lg">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-800">
+    <div className="overflow-hidden shadow rounded-lg border border-yellow-400 bg-black">
+      <table className="min-w-full divide-y divide-yellow-400">
+        <thead className="bg-black">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
               Name
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
               Email
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-left text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
               Phone
             </th>
-            <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-right text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
               Actions
             </th>
           </tr>
         </thead>
-        <tbody className="bg-gray-900 divide-y divide-gray-200">
+        <tbody className="bg-black divide-y divide-yellow-400">
           {contacts.map((contact) => (
             <tr key={contact.id}>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="font-medium text-gray-50">{contact.name}</div>
+                <div className="font-medium text-white">{contact.name}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-gray-50">{contact.email || '-'}</div>
+                <div className="text-white">{contact.email || '-'}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-gray-50">{contact.phone || '-'}</div>
+                <div className="text-white">{contact.phone || '-'}</div>
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+              <td className="px-6 py-4 whitespace-nowrap text-right space-x-2">
                 <button
                   onClick={() => onEdit(contact.id)}
-                  className="text-blue-600 hover:text-blue-900 mr-4 cursor-pointer"
-                  type="button"
+                  className="px-3 py-1 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors"
                 >
                   Edit
                 </button>
@@ -64,7 +63,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
                     await onDelete(contact);
                     setDeletingId(null);
                   }}
-                  className={`text-red-600 hover:text-red-900 cursor-pointer ${deletingId === contact.id ? 'opacity-60 pointer-events-none' : ''}`}
+                  className={`px-3 py-1 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors ${deletingId === contact.id ? 'opacity-60 pointer-events-none' : ''}`}
                   type="button"
                   disabled={deletingId === contact.id}
                 >
