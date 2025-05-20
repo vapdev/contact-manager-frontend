@@ -1,3 +1,4 @@
+import React from 'react';
 import { Contact } from '@/types';
 import { useState } from 'react';
 

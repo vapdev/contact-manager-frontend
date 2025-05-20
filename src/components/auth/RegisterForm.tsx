@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
 
@@ -54,7 +54,6 @@ export default function RegisterForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
-            required
           />
         </div>
         <div className="mb-4">
@@ -67,7 +66,6 @@ export default function RegisterForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
-            required
           />
         </div>
         <div className="mb-6">
@@ -80,7 +78,6 @@ export default function RegisterForm() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
-            required
           />
         </div>
         <button
