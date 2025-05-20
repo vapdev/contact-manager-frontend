@@ -85,5 +85,8 @@ contact-manager-frontend/
 - O backend deve estar rodando e acessível na URL configurada em `NEXT_PUBLIC_API_URL`.
 
 ---
+Espero que tenha gostado do projeto! Qualquer coisa, é só chamar.
 
-Feito com 💙 por Vitor.
+Email: vpbohn@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/vitorpbohn/
