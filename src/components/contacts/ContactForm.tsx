@@ -49,6 +49,31 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
     setSubmitting(false);
   };
 
+  function formatPhone(value: string) {
+    const digits = value.replace(/\D/g, "");
+    if (digits.length <= 10) {
+      return digits.replace(/(\d{0,2})(\d{0,4})(\d{0,4})/, function(_, ddd, part1, part2) {
+        let out = '';
+        if (ddd) out += `(${ddd}`;
+        if (ddd && ddd.length === 2) out += ') ';
+        if (part1) out += part1;
+        if (part1 && part1.length === 4) out += '-';
+        if (part2) out += part2;
+        return out;
+      });
+    } else {
+      return digits.replace(/(\d{0,2})(\d{0,5})(\d{0,4})/, function(_, ddd, part1, part2) {
+        let out = '';
+        if (ddd) out += `(${ddd}`;
+        if (ddd && ddd.length === 2) out += ') ';
+        if (part1) out += part1;
+        if (part1 && part1.length === 5) out += '-';
+        if (part2) out += part2;
+        return out;
+      });
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit} className="bg-black p-6 rounded-lg border border-yellow-400 max-w-md mx-auto mt-10">
       <h2 className="text-2xl font-bold mb-6 text-center text-yellow-400">{contact ? 'Editar Contato' : 'Novo Contato'}</h2>
@@ -91,7 +116,7 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
           id="phone"
           type="text"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => setPhone(formatPhone(e.target.value))}
           className="input-yellow w-full"
           placeholder="Digite o telefone"
         />

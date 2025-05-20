@@ -27,7 +27,6 @@ export default function NewContactPage() {
   return (
     <ProtectedRoute>
       <div className="container mx-auto px-4 py-8 max-w-xl">
-        <h1 className="text-2xl font-bold mb-6">Create New Contact</h1>
 
         {error && (
           <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
