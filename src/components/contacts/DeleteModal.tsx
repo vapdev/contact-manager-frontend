@@ -27,7 +27,7 @@ export default function DeleteModal({ contact, onConfirm, onCancel }: DeleteModa
         <div className="flex justify-end space-x-4">
           <button
             onClick={onCancel}
-            className="px-4 py-2 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors"
+            className="px-4 cursor-pointer py-2 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors"
             type="button"
             disabled={loading}
           >
@@ -35,7 +35,7 @@ export default function DeleteModal({ contact, onConfirm, onCancel }: DeleteModa
           </button>
           <button
             onClick={handleConfirm}
-            className="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500 transition-colors font-bold"
+            className="px-4 cursor-pointer py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500 transition-colors font-bold"
             type="button"
             disabled={loading}
           >

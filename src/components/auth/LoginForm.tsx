@@ -15,7 +15,7 @@ export default function LoginForm() {
     e.preventDefault();
     setError('');
     if (!email || !password) {
-      setError('Email and password are required');
+      setError('Preencha e-mail e senha');
       return;
     }
     setSubmitting(true);
@@ -68,7 +68,7 @@ export default function LoginForm() {
         </div>
         <button
           type="submit"
-          className="btn-yellow w-full py-3 text-lg"
+          className="btn-yellow cursor-pointer w-full py-3 text-lg"
           disabled={submitting || loading}
         >
           {submitting ? 'Entrando...' : 'Entrar'}

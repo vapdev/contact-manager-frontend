@@ -53,7 +53,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
               <td className="px-6 py-4 whitespace-nowrap text-right space-x-2">
                 <button
                   onClick={() => onEdit(contact.id)}
-                  className="px-3 py-1 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors"
+                  className="px-3 cursor-pointer py-1 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors"
                 >
                   Editar
                 </button>
@@ -63,7 +63,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
                     await onDelete(contact);
                     setDeletingId(null);
                   }}
-                  className={`px-3 py-1 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors ${deletingId === contact.id ? 'opacity-60 pointer-events-none' : ''}`}
+                  className={`px-3 cursor-pointer py-1 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors ${deletingId === contact.id ? 'opacity-60 pointer-events-none' : ''}`}
                   type="button"
                   disabled={deletingId === contact.id}
                 >

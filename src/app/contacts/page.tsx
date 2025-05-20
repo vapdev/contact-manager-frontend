@@ -70,7 +70,7 @@ export default function ContactsPage() {
           <h1 className="text-2xl font-bold">Meus Contatos</h1>
           <button
             onClick={() => router.push('/contacts/new')}
-            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+            className="cursor-pointer text-white px-4 py-2 rounded"
           >
             Adicionar novo contato
           </button>

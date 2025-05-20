@@ -1,7 +1,5 @@
-import React from 'react';
-
 'use client';
-
+import React from 'react';
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -101,7 +99,7 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
       <div className="flex justify-between gap-4">
         <button
           type="button"
-          className="btn-outline-yellow w-1/2 py-3"
+          className="btn-outline-yellow cursor-pointer w-1/2 py-3"
           onClick={() => router.back()}
           disabled={submitting || isLoading}
         >
@@ -109,7 +107,7 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
         </button>
         <button
           type="submit"
-          className="btn-yellow w-1/2 py-3"
+          className="btn-yellow cursor-pointer w-1/2 py-3"
           disabled={submitting || isLoading}
         >
           {submitting || isLoading ? 'Salvando...' : 'Salvar'}

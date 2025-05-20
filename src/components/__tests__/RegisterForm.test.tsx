@@ -29,6 +29,6 @@ describe('RegisterForm', () => {
     // @ts-ignore
     // eslint-disable-next-line testing-library/no-debugging-utils
     screen.debug();
-    expect(await screen.findByText(/email and password are required/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Preencha e-mail e senha/i)).toBeInTheDocument();
   });
 });

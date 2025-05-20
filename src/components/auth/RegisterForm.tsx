@@ -16,28 +16,28 @@ export default function RegisterForm() {
     e.preventDefault();
     setError('');
     if (!email || !password) {
-      setError('Email and password are required');
+      setError('Preencha e-mail e senha');
       return;
     }
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError('As senhas não coincidem');
       return;
     }
     if (password.length < 6) {
-      setError('Password must be at least 6 characters');
+      setError('A senha deve ter pelo menos 6 caracteres');
       return;
     }
     setSubmitting(true);
     const result = await register(email, password);
     setSubmitting(false);
     if (!result.success) {
-      setError(result.message || 'Registration failed');
+      setError(result.message || 'Falha ao registrar');
     }
   };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-black rounded-lg shadow-md border border-yellow-400">
-      <h2 className="text-2xl font-bold mb-6 text-center text-yellow-400">Register</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-yellow-400">Registrar</h2>
       {error && (
         <div className="alert-error">
           {error}

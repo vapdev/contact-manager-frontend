@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import ContactForm from '@/components/contacts/ContactForm';
@@ -81,7 +82,6 @@ export default function EditContactPage({ params }: EditContactPageProps) {
   return (
     <ProtectedRoute>
       <div className="container mx-auto px-4 py-8 max-w-xl">
-        <h1 className="text-2xl font-bold mb-6">Edit Contact</h1>
         
         {error && (
           <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
