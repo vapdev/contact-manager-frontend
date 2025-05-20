@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import Image from "next/image";
+import HamburgerButton from "./HamburgerButton";
 
 export default function Header() {
   const { user, logout, loading } = useAuth();
@@ -22,7 +23,6 @@ export default function Header() {
 
   return (
     <header className="bg-black text-white shadow-lg">
-      {/* Sidebar */}
       <div
         className={`fixed inset-0 z-40 bg-black bg-opacity-40 transition-opacity ${
           sidebarOpen ? "block" : "hidden"
@@ -73,28 +73,8 @@ export default function Header() {
       </aside>
 
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 relative">
-        {/* Hamburger */}
-        <button
-          className="flex cursor-pointer items-center justify-center w-10 h-10 text-yellow-400 hover:text-yellow-200 focus:outline-none"
-          onClick={() => setSidebarOpen(true)}
-          aria-label="Abrir menu"
-        >
-          <svg
-            className="w-7 h-7"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+        <HamburgerButton onClick={() => setSidebarOpen(true)} />
 
-        {/* Logo centralizada */}
         <div className="flex-1 flex justify-center">
           <Link href="/" className="flex items-center justify-center">
             <Image
@@ -107,13 +87,12 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Espaço para alinhar o conteúdo à direita */}
         <div className="flex items-center space-x-4 min-w-[120px] justify-end">
           {loading ? (
             <div className="animate-pulse h-6 w-24 bg-yellow-400 rounded"></div>
           ) : user ? (
-            <span className="text-sm sm:text-base text-yellow-200">
-              Olá, {user.name || user.email}!
+            <span className="text-md sm:text- font-bold text-yellow-400">
+              {user.name || user.email}
             </span>
           ) : null}
         </div>
