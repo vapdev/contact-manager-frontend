@@ -9,7 +9,7 @@ interface ContactsListProps {
 export default function ContactsList({ contacts, onEdit, onDelete }: ContactsListProps) {
   if (contacts.length === 0) {
     return (
-      <div className="bg-gray-100 p-6 rounded text-center">
+      <div className="bg-gray-800 p-6 rounded text-center">
         No contacts found. Add your first contact!
       </div>
     );
@@ -18,7 +18,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
   return (
     <div className="overflow-hidden shadow rounded-lg">
       <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+        <thead className="bg-gray-800">
           <tr>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Name
@@ -34,21 +34,21 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-gray-700 divide-y divide-gray-200">
           {contacts.map((contact) => (
-            <tr key={contact.id}>
+            <tr key={contact._id}>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="font-medium text-gray-900">{contact.name}</div>
+                <div className="font-medium text-gray-50">{contact.name}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-gray-500">{contact.email || '-'}</div>
+                <div className="text-gray-50">{contact.email || '-'}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-gray-500">{contact.phone || '-'}</div>
+                <div className="text-gray-50">{contact.phone || '-'}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <button
-                  onClick={() => onEdit(contact.id)}
+                  onClick={() => onEdit(contact._id)}
                   className="text-blue-600 hover:text-blue-900 mr-4"
                 >
                   Edit

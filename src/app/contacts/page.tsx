@@ -51,8 +51,8 @@ export default function ContactsPage() {
     if (!contactToDelete) return;
     
     try {
-      await contactService.deleteContact(contactToDelete.id);
-      setContacts(contacts.filter(c => c.id !== contactToDelete.id));
+      await contactService.deleteContact(contactToDelete._id);
+      setContacts(contacts.filter(c => c._id !== contactToDelete._id));
       setContactToDelete(null);
     } catch (err) {
       setError('Failed to delete contact');

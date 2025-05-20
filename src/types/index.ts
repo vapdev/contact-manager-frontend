@@ -1,10 +1,11 @@
 export interface User {
   id: string;
   email: string;
+  name: string;
 }
 
 export interface Contact {
-  id: string;
+  _id: string;
   name: string;
   email?: string;
   phone?: string;
@@ -12,7 +13,7 @@ export interface Contact {
 }
 
 export interface AuthResponse {
-  token: string;
+  access_token: string;
   user: User;
 }
 

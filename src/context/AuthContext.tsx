@@ -2,7 +2,7 @@
 
 import { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { User, AuthResponse, ApiError } from '@/types';
+import { User, ApiError } from '@/types';
 import authService from '@/services/authService';
 
 interface AuthContextType {
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(true);
     try {
       const data = await authService.login(email, password);
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.access_token);
       setUser(data.user);
       router.push('/contacts');
       return { success: true };
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(true);
     try {
       const data = await authService.register(email, password);
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.access_token);
       setUser(data.user);
       router.push('/contacts');
       return { success: true };

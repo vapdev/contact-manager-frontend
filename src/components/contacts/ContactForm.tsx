@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 interface ContactFormProps {
   contact?: {
-    id: string;
+    _id: string;
     name: string;
     email?: string;
     phone?: string;
