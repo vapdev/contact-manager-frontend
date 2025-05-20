@@ -86,4 +86,4 @@ contact-manager-frontend/
 
 ---
 
-Feito com 💙 por Vitor e colaboradores.
+Feito com 💙 por Vitor.
