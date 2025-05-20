@@ -14,22 +14,18 @@ export default function RegisterForm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
-    
     if (!email || !password) {
       setError('Email and password are required');
       return;
     }
-    
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
     }
-    
     if (password.length < 6) {
       setError('Password must be at least 6 characters');
       return;
     }
-
     const result = await register(email, password);
     if (!result.success) {
       setError(result.message || 'Registration failed');
@@ -39,13 +35,11 @@ export default function RegisterForm() {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
-      
       {error && (
         <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
           {error}
         </div>
       )}
-      
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium" htmlFor="email">
@@ -60,7 +54,6 @@ export default function RegisterForm() {
             required
           />
         </div>
-        
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium" htmlFor="password">
             Password
@@ -74,7 +67,6 @@ export default function RegisterForm() {
             required
           />
         </div>
-        
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium" htmlFor="confirmPassword">
             Confirm Password
@@ -88,7 +80,6 @@ export default function RegisterForm() {
             required
           />
         </div>
-        
         <button
           type="submit"
           disabled={loading}
@@ -97,7 +88,6 @@ export default function RegisterForm() {
           {loading ? 'Creating account...' : 'Register'}
         </button>
       </form>
-      
       <p className="mt-4 text-center">
         Already have an account?{' '}
         <Link href="/auth/login" className="text-blue-600 hover:underline">

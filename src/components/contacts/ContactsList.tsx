@@ -34,7 +34,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
             </th>
           </tr>
         </thead>
-        <tbody className="bg-gray-700 divide-y divide-gray-200">
+        <tbody className="bg-gray-900 divide-y divide-gray-200">
           {contacts.map((contact) => (
             <tr key={contact._id}>
               <td className="px-6 py-4 whitespace-nowrap">

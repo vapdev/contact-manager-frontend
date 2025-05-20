@@ -25,7 +25,6 @@ export default function ContactsPage() {
       setError('');
     } catch (err) {
       setError('Failed to load contacts');
-      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -56,7 +55,6 @@ export default function ContactsPage() {
       setContactToDelete(null);
     } catch (err) {
       setError('Failed to delete contact');
-      console.error(err);
     }
   };
 

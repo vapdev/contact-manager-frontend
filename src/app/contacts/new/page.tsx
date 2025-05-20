@@ -18,7 +18,6 @@ export default function NewContactPage() {
       router.push('/contacts');
     } catch (err) {
       setError('Failed to create contact');
-      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -28,17 +27,14 @@ export default function NewContactPage() {
     <ProtectedRoute>
       <div className="container mx-auto px-4 py-8 max-w-xl">
         <h1 className="text-2xl font-bold mb-6">Create New Contact</h1>
-        
+
         {error && (
           <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
             {error}
           </div>
         )}
-        
-        <ContactForm
-          onSubmit={handleSubmit}
-          isLoading={loading}
-        />
+
+        <ContactForm onSubmit={handleSubmit} isLoading={loading} />
       </div>
     </ProtectedRoute>
   );

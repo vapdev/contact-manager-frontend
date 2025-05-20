@@ -13,12 +13,10 @@ export default function LoginForm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
-    
     if (!email || !password) {
       setError('Email and password are required');
       return;
     }
-
     const result = await login(email, password);
     if (!result.success) {
       setError(result.message || 'Login failed');
@@ -28,13 +26,11 @@ export default function LoginForm() {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-      
       {error && (
         <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
           {error}
         </div>
       )}
-      
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium" htmlFor="email">
@@ -49,7 +45,6 @@ export default function LoginForm() {
             required
           />
         </div>
-        
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium" htmlFor="password">
             Password
@@ -63,7 +58,6 @@ export default function LoginForm() {
             required
           />
         </div>
-        
         <button
           type="submit"
           disabled={loading}
@@ -72,7 +66,6 @@ export default function LoginForm() {
           {loading ? 'Logging in...' : 'Login'}
         </button>
       </form>
-      
       <p className="mt-4 text-center">
         Don't have an account?{' '}
         <Link href="/auth/register" className="text-blue-600 hover:underline">

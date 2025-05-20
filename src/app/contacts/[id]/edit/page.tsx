@@ -29,7 +29,6 @@ export default function EditContactPage({ params }: EditContactPageProps) {
         setError('');
       } catch (err) {
         setError('Failed to load contact');
-        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -45,7 +44,6 @@ export default function EditContactPage({ params }: EditContactPageProps) {
       router.push('/contacts');
     } catch (err) {
       setError('Failed to update contact');
-      console.error(err);
     } finally {
       setSaving(false);
     }
