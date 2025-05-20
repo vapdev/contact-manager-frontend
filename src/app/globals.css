@@ -2,9 +2,12 @@
 
 :root {
   --background: #000000;
-  --foreground: #fafafa;
-  --accent-yellow: #ffe600;
-  --accent-yellow-dark: #ffd600;
+  --foreground: #fff;
+  --accent-yellow: #FFC72C;
+  --accent-yellow-dark: #e6b200;
+  --input-bg: #111;
+  --input-border: #FFC72C;
+  --input-placeholder: #ffe680;
 }
 
 body {
@@ -16,23 +19,55 @@ body {
 /* Links e botões amarelos por padrão */
 a, .link-yellow {
   color: var(--accent-yellow);
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+a:hover, .link-yellow:hover {
+  text-decoration: underline;
 }
 
 button, .btn-yellow {
   background: var(--accent-yellow);
   color: #000;
-  font-weight: 600;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  border: none;
+  transition: background 0.2s;
 }
 
 button:hover, .btn-yellow:hover {
   background: var(--accent-yellow-dark);
 }
 
+.btn-outline-yellow {
+  background: transparent;
+  color: var(--accent-yellow);
+  border: 2px solid var(--accent-yellow);
+  border-radius: 0.5rem;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-yellow:hover {
+  background: var(--accent-yellow);
+  color: #000;
+}
+
+input, .input-yellow {
+  background: var(--input-bg);
+  border: 2px solid var(--input-border);
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+input::placeholder, .input-yellow::placeholder {
+  color: var(--input-placeholder);
+}
+
 /* Erros e alertas */
 .alert-error {
   background: #2d2d2d;
-  color: #ffe600;
-  border-left: 4px solid #ffe600;
+  color: var(--accent-yellow);
+  border-left: 4px solid var(--accent-yellow);
   padding: 1rem;
   border-radius: 0.5rem;
 }

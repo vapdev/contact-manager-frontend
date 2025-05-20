@@ -15,7 +15,7 @@ export default function Header() {
             href="/"
             className="text-2xl font-bold text-yellow-400 hover:text-white transition-colors"
           >
-            ContactManager
+            Versus VIPs
           </Link>
         </div>
 
@@ -44,7 +44,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/auth/register"
-                className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-2 rounded-md text-sm font-bold transition-colors border border-yellow-400"
+                className="bg-yellow-300 hover:bg-yellow-500 !text-black px-3 py-2 rounded-md text-sm font-bold transition-colors border border-yellow-400"
               >
                 Register
               </Link>

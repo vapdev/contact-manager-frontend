@@ -5,6 +5,6 @@ import Header from '../layout/Header';
 describe('Header', () => {
   it('renders app title', () => {
     render(<Header />);
-    expect(screen.getByText(/contactmanager/i)).toBeInTheDocument();
+    expect(screen.getByText(/Versus VIPs/i)).toBeInTheDocument();
   });
 });

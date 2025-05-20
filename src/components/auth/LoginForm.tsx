@@ -36,43 +36,48 @@ export default function LoginForm() {
       )}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block mb-2 text-sm font-medium text-yellow-300" htmlFor="email">
-            Email
+          <label className="block mb-2 text-sm font-bold text-yellow-400" htmlFor="email">
+            E-mail
           </label>
           <input
             id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 border border-yellow-400 bg-black text-white rounded focus:outline-none focus:border-yellow-300"
+            className="input-yellow w-full"
+            placeholder="Digite seu e-mail"
+            autoComplete="email"
           />
         </div>
         <div className="mb-6">
-          <label className="block mb-2 text-sm font-medium text-yellow-300" htmlFor="password">
-            Password
+          <label className="block mb-2 text-sm font-bold text-yellow-400" htmlFor="password">
+            Senha
           </label>
           <input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border border-yellow-400 bg-black text-white rounded focus:outline-none focus:border-yellow-300"
+            className="input-yellow w-full"
+            placeholder="Digite sua senha"
+            autoComplete="current-password"
           />
+        </div>
+        <div className="flex justify-between items-center mb-6">
+          <Link href="/auth/forgot" className="link-yellow text-sm">Esqueceu sua senha?</Link>
         </div>
         <button
           type="submit"
-          disabled={loading || submitting}
-          className="w-full py-2 px-4 btn-yellow rounded disabled:opacity-60 cursor-pointer"
+          className="btn-yellow w-full py-3 text-lg"
+          disabled={submitting || loading}
         >
-          {(loading || submitting) ? 'Logging in...' : 'Login'}
+          {submitting ? 'Entrando...' : 'Entrar'}
         </button>
       </form>
-      <p className="mt-4 text-center text-gray-300">
-        Don't have an account?{' '}
-        <Link href="/auth/register" className="link-yellow hover:underline">
-          Register
-        </Link>
-      </p>
+      <div className="mt-6 text-center text-white">
+        Não possui uma conta?{' '}
+        <Link href="/auth/register" className="link-yellow font-bold">Cadastre-se grátis</Link>
+      </div>
     </div>
   );
 }

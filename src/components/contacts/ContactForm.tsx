@@ -52,67 +52,67 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-black p-6 rounded-lg border border-yellow-400">
-      <div>
-        <label htmlFor="name" className="block mb-1 font-medium text-yellow-300">
-          Name*
+    <form onSubmit={handleSubmit} className="bg-black p-6 rounded-lg border border-yellow-400 max-w-md mx-auto mt-10">
+      <h2 className="text-2xl font-bold mb-6 text-center text-yellow-400">{contact ? 'Editar Contato' : 'Novo Contato'}</h2>
+      {Object.values(errors).length > 0 && (
+        <div className="alert-error mb-4">
+          {errors.name || errors.email}
+        </div>
+      )}
+      <div className="mb-4">
+        <label className="block mb-2 text-sm font-bold text-yellow-400" htmlFor="name">
+          Nome
         </label>
         <input
           id="name"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className={`w-full p-2 border rounded bg-black text-white focus:outline-none focus:border-yellow-300 ${errors.name ? 'border-yellow-400' : 'border-yellow-700'}`}
+          className="input-yellow w-full"
+          placeholder="Digite o nome"
         />
-        {errors.name && (
-          <p className="mt-1 text-sm text-yellow-400">{errors.name}</p>
-        )}
       </div>
-      <div>
-        <label htmlFor="email" className="block mb-1 font-medium text-yellow-300">
-          Email
+      <div className="mb-4">
+        <label className="block mb-2 text-sm font-bold text-yellow-400" htmlFor="email">
+          E-mail
         </label>
         <input
           id="email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`w-full p-2 border rounded bg-black text-white focus:outline-none focus:border-yellow-300 ${errors.email ? 'border-yellow-400' : 'border-yellow-700'}`}
+          className="input-yellow w-full"
+          placeholder="Digite o e-mail"
         />
-        {errors.email && (
-          <p className="mt-1 text-sm text-yellow-400">{errors.email}</p>
-        )}
       </div>
-      <div>
-        <label htmlFor="phone" className="block mb-1 font-medium text-yellow-300">
-          Phone
+      <div className="mb-6">
+        <label className="block mb-2 text-sm font-bold text-yellow-400" htmlFor="phone">
+          Telefone
         </label>
         <input
           id="phone"
           type="text"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full p-2 border border-yellow-700 bg-black text-white rounded focus:outline-none focus:border-yellow-300"
+          className="input-yellow w-full"
+          placeholder="Digite o telefone"
         />
       </div>
-      <div className="flex space-x-4 pt-4">
-        <button
-          type="submit"
-          disabled={isLoading || submitting}
-          className="px-4 py-2 btn-yellow rounded disabled:opacity-60 cursor-pointer"
-        >
-          {(isLoading || submitting)
-            ? 'Saving...'
-            : contact
-            ? 'Update Contact'
-            : 'Create Contact'}
-        </button>
+      <div className="flex justify-between gap-4">
         <button
           type="button"
-          onClick={() => router.push('/contacts')}
-          className="px-4 py-2 border border-yellow-400 text-yellow-400 bg-black rounded hover:bg-yellow-400 hover:text-black transition-colors cursor-pointer"
+          className="btn-outline-yellow w-1/2 py-3"
+          onClick={() => router.back()}
+          disabled={submitting || isLoading}
         >
-          Cancel
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          className="btn-yellow w-1/2 py-3"
+          disabled={submitting || isLoading}
+        >
+          {submitting || isLoading ? 'Salvando...' : 'Salvar'}
         </button>
       </div>
     </form>
