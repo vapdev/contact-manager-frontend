@@ -36,7 +36,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
         </thead>
         <tbody className="bg-gray-900 divide-y divide-gray-200">
           {contacts.map((contact) => (
-            <tr key={contact._id}>
+            <tr key={contact.id}>
               <td className="px-6 py-4 whitespace-nowrap">
                 <div className="font-medium text-gray-50">{contact.name}</div>
               </td>
@@ -48,7 +48,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <button
-                  onClick={() => onEdit(contact._id)}
+                  onClick={() => onEdit(contact.id)}
                   className="text-blue-600 hover:text-blue-900 mr-4"
                 >
                   Edit

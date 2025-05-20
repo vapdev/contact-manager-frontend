@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import ContactForm from '@/components/contacts/ContactForm';
 import contactService from '@/services/contactService';
@@ -8,9 +8,7 @@ import ProtectedRoute from '@/components/layout/ProtectedRoute';
 import { Contact } from '@/types';
 
 interface EditContactPageProps {
-  params: {
-    id: string;
-  };
+  params:   Promise<{ id: string }>;
 }
 
 export default function EditContactPage({ params }: EditContactPageProps) {
@@ -19,7 +17,8 @@ export default function EditContactPage({ params }: EditContactPageProps) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
-  const { id } = params;
+  const resolvedParams = use(params);
+  const { id } = resolvedParams;
 
   useEffect(() => {
     const fetchContact = async () => {
@@ -29,6 +28,7 @@ export default function EditContactPage({ params }: EditContactPageProps) {
         setError('');
       } catch (err) {
         setError('Failed to load contact');
+        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -44,6 +44,7 @@ export default function EditContactPage({ params }: EditContactPageProps) {
       router.push('/contacts');
     } catch (err) {
       setError('Failed to update contact');
+      console.error(err);
     } finally {
       setSaving(false);
     }

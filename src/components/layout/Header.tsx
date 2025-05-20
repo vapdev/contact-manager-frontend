@@ -24,7 +24,7 @@ export default function Header() {
           ) : user ? (
             <>
               <span className="text-sm sm:text-base">
-                Olá, {user.name || user.email}!
+                Hello, {user.name || user.email}!
               </span>
               <button
                 onClick={logout}
