@@ -8,10 +8,13 @@ interface SearchBarProps {
 
 export default function SearchBar({ onSearch }: SearchBarProps) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    onSearch(searchTerm);
+    setSubmitting(true);
+    await onSearch(searchTerm);
+    setSubmitting(false);
   };
 
   return (
@@ -26,9 +29,10 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white p-2 rounded-r hover:bg-blue-700"
+          className="bg-blue-600 text-white p-2 rounded-r hover:bg-blue-700 cursor-pointer"
+          disabled={submitting}
         >
-          Search
+          {submitting ? 'Searching...' : 'Search'}
         </button>
       </div>
     </form>

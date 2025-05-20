@@ -8,6 +8,7 @@ export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const { login, loading } = useAuth();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -17,7 +18,9 @@ export default function LoginForm() {
       setError('Email and password are required');
       return;
     }
+    setSubmitting(true);
     const result = await login(email, password);
+    setSubmitting(false);
     if (!result.success) {
       setError(result.message || 'Login failed');
     }
@@ -60,10 +63,10 @@ export default function LoginForm() {
         </div>
         <button
           type="submit"
-          disabled={loading}
-          className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300"
+          disabled={loading || submitting}
+          className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300 cursor-pointer"
         >
-          {loading ? 'Logging in...' : 'Login'}
+          {(loading || submitting) ? 'Logging in...' : 'Login'}
         </button>
       </form>
       <p className="mt-4 text-center">

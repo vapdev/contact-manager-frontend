@@ -19,6 +19,7 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
   const [email, setEmail] = useState(contact?.email || '');
   const [phone, setPhone] = useState(contact?.phone || '');
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [submitting, setSubmitting] = useState(false);
   const router = useRouter();
 
   const validate = () => {
@@ -38,12 +39,14 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
     if (!validate()) {
       return;
     }
+    setSubmitting(true);
     const contactData = {
       name,
       email: email || undefined,
       phone: phone || undefined
     };
     await onSubmit(contactData);
+    setSubmitting(false);
   };
 
   return (
@@ -93,10 +96,10 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
       <div className="flex space-x-4 pt-4">
         <button
           type="submit"
-          disabled={isLoading}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300"
+          disabled={isLoading || submitting}
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300 cursor-pointer"
         >
-          {isLoading
+          {(isLoading || submitting)
             ? 'Saving...'
             : contact
             ? 'Update Contact'
@@ -105,7 +108,7 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
         <button
           type="button"
           onClick={() => router.push('/contacts')}
-          className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+          className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 cursor-pointer"
         >
           Cancel
         </button>

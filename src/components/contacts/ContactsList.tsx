@@ -1,4 +1,5 @@
 import { Contact } from '@/types';
+import { useState } from 'react';
 
 interface ContactsListProps {
   contacts: Contact[];
@@ -7,6 +8,8 @@ interface ContactsListProps {
 }
 
 export default function ContactsList({ contacts, onEdit, onDelete }: ContactsListProps) {
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
   if (contacts.length === 0) {
     return (
       <div className="bg-gray-800 p-6 rounded text-center">
@@ -49,15 +52,22 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <button
                   onClick={() => onEdit(contact.id)}
-                  className="text-blue-600 hover:text-blue-900 mr-4"
+                  className="text-blue-600 hover:text-blue-900 mr-4 cursor-pointer"
+                  type="button"
                 >
                   Edit
                 </button>
                 <button
-                  onClick={() => onDelete(contact)}
-                  className="text-red-600 hover:text-red-900"
+                  onClick={async () => {
+                    setDeletingId(contact.id);
+                    await onDelete(contact);
+                    setDeletingId(null);
+                  }}
+                  className={`text-red-600 hover:text-red-900 cursor-pointer ${deletingId === contact.id ? 'opacity-60 pointer-events-none' : ''}`}
+                  type="button"
+                  disabled={deletingId === contact.id}
                 >
-                  Delete
+                  {deletingId === contact.id ? 'Deleting...' : 'Delete'}
                 </button>
               </td>
             </tr>

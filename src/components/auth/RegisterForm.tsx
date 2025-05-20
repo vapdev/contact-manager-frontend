@@ -9,6 +9,7 @@ export default function RegisterForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const { register, loading } = useAuth();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -26,7 +27,9 @@ export default function RegisterForm() {
       setError('Password must be at least 6 characters');
       return;
     }
+    setSubmitting(true);
     const result = await register(email, password);
+    setSubmitting(false);
     if (!result.success) {
       setError(result.message || 'Registration failed');
     }
@@ -82,10 +85,10 @@ export default function RegisterForm() {
         </div>
         <button
           type="submit"
-          disabled={loading}
-          className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300"
+          disabled={loading || submitting}
+          className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300 cursor-pointer"
         >
-          {loading ? 'Creating account...' : 'Register'}
+          {(loading || submitting) ? 'Creating account...' : 'Register'}
         </button>
       </form>
       <p className="mt-4 text-center">
