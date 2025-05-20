@@ -67,12 +67,12 @@ export default function ContactsPage() {
     <ProtectedRoute>
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold">My Contacts</h1>
+          <h1 className="text-2xl font-bold">Meus Contatos</h1>
           <button
             onClick={() => router.push('/contacts/new')}
             className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
           >
-            Add New Contact
+            Adicionar novo contato
           </button>
         </div>
 

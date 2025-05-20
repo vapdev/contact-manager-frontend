@@ -20,9 +20,9 @@ export default function DeleteModal({ contact, onConfirm, onCancel }: DeleteModa
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
       <div className="bg-black border border-yellow-400 rounded-lg p-6 max-w-md w-full">
-        <h3 className="text-xl font-bold mb-4 text-yellow-400">Delete Contact</h3>
+        <h3 className="text-xl font-bold mb-4 text-yellow-400">Excluir Contato</h3>
         <p className="mb-6 text-white">
-          Are you sure you want to delete <strong className="text-yellow-400">{contact.name}</strong>? This action cannot be undone.
+          Tem certeza que deseja excluir <strong className="text-yellow-400">{contact.name}</strong>? Esta ação não pode ser desfeita.
         </p>
         <div className="flex justify-end space-x-4">
           <button
@@ -31,7 +31,7 @@ export default function DeleteModal({ contact, onConfirm, onCancel }: DeleteModa
             type="button"
             disabled={loading}
           >
-            Cancel
+            Cancelar
           </button>
           <button
             onClick={handleConfirm}
@@ -39,7 +39,7 @@ export default function DeleteModal({ contact, onConfirm, onCancel }: DeleteModa
             type="button"
             disabled={loading}
           >
-            {loading ? 'Deleting...' : 'Delete'}
+            {loading ? 'Excluindo...' : 'Excluir'}
           </button>
         </div>
       </div>

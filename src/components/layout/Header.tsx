@@ -25,28 +25,28 @@ export default function Header() {
           ) : user ? (
             <>
               <span className="text-sm sm:text-base text-yellow-200">
-                Hello, {user.name || user.email}!
+                Olá, {user.name || user.email}!
               </span>
               <button
                 onClick={logout}
-                className="bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-2 rounded-md text-sm font-bold transition-colors border border-yellow-400"
+                className="bg-black! cursor-pointer hover:bg-yellow-500! text-yellow-300! px-3 py-2 rounded-md text-sm font-bold transition-colors border border-yellow-400"
               >
-                Logout
+                Sair
               </button>
             </>
           ) : (
             <>
               <Link
                 href="/auth/login"
-                className="text-yellow-400 border border-yellow-400 hover:bg-yellow-400 hover:text-black px-3 py-2 rounded-md text-sm font-bold transition-colors"
+                className="text-yellow-400 hover:text-black! border border-yellow-400 hover:bg-yellow-400 px-3 py-2 rounded-md text-sm font-bold transition-colors"
               >
-                Login
+                Entrar
               </Link>
               <Link
                 href="/auth/register"
                 className="bg-yellow-300 hover:bg-yellow-500 !text-black px-3 py-2 rounded-md text-sm font-bold transition-colors border border-yellow-400"
               >
-                Register
+                Registrar
               </Link>
             </>
           )}

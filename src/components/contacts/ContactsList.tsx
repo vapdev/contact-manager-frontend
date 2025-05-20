@@ -14,7 +14,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
   if (contacts.length === 0) {
     return (
       <div className="bg-black p-6 rounded text-center text-white border border-yellow-400">
-        No contacts found. Add your first contact!
+        Nenhum contato encontrado. Adicione seu primeiro contato!
       </div>
     );
   }
@@ -25,16 +25,16 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
         <thead className="bg-black">
           <tr>
             <th className="px-6 py-3 text-left text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
-              Name
+              Nome
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
-              Email
+              E-mail
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
-              Phone
+              Telefone
             </th>
             <th className="px-6 py-3 text-right text-xs font-medium text-yellow-400 uppercase tracking-wider border-b border-yellow-400">
-              Actions
+              Ações
             </th>
           </tr>
         </thead>
@@ -55,7 +55,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
                   onClick={() => onEdit(contact.id)}
                   className="px-3 py-1 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors"
                 >
-                  Edit
+                  Editar
                 </button>
                 <button
                   onClick={async () => {
@@ -67,7 +67,7 @@ export default function ContactsList({ contacts, onEdit, onDelete }: ContactsLis
                   type="button"
                   disabled={deletingId === contact.id}
                 >
-                  {deletingId === contact.id ? 'Deleting...' : 'Delete'}
+                  {deletingId === contact.id ? 'Excluindo...' : 'Excluir'}
                 </button>
               </td>
             </tr>

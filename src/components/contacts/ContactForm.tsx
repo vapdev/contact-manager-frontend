@@ -27,10 +27,10 @@ export default function ContactForm({ contact, onSubmit, isLoading }: ContactFor
   const validate = () => {
     const newErrors: { name?: string; email?: string } = {};
     if (!name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = 'O nome é obrigatório';
     }
     if (email && !/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = 'Email is invalid';
+      newErrors.email = 'E-mail inválido';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

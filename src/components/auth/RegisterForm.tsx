@@ -46,7 +46,7 @@ export default function RegisterForm() {
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium text-yellow-300" htmlFor="email">
-            Email
+            E-mail
           </label>
           <input
             id="email"
@@ -58,7 +58,7 @@ export default function RegisterForm() {
         </div>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium text-yellow-300" htmlFor="password">
-            Password
+            Senha
           </label>
           <input
             id="password"
@@ -70,7 +70,7 @@ export default function RegisterForm() {
         </div>
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium text-yellow-300" htmlFor="confirmPassword">
-            Confirm Password
+            Confirmar Senha
           </label>
           <input
             id="confirmPassword"
@@ -85,13 +85,13 @@ export default function RegisterForm() {
           disabled={loading || submitting}
           className="w-full py-2 px-4 btn-yellow rounded disabled:opacity-60 cursor-pointer"
         >
-          {(loading || submitting) ? 'Creating account...' : 'Register'}
+          {(loading || submitting) ? 'Criando conta...' : 'Registrar'}
         </button>
       </form>
       <p className="mt-4 text-center text-gray-300">
-        Already have an account?{' '}
+        Já possui uma conta?{' '}
         <Link href="/auth/login" className="link-yellow hover:underline">
-          Login
+          Entrar
         </Link>
       </p>
     </div>
